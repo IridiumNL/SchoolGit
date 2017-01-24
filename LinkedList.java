@@ -131,7 +131,7 @@ class TestLinkedList {
         System.out.println(l);
  
         if(l.search(5))
-            System.out.println("5 is in the list :(");
+            System.out.println("5 is in the list ");
         else
             System.out.println("5 is not in the list");
  

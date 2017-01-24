@@ -111,4 +111,26 @@ class LinkedList {
         String s = sb.toString();
         return s;
     }
+    
+    public int[] toArray() {
+    	int[] arrayRep = new int[size];
+    	Node temp = head;
+    	if(isEmpty()) {
+    		System.out.println("Your list had no items. No array created.");
+    	}
+    	else {
+    		System.out.print("> Here's your array: ");
+    		for(int i = 0; i < size; i++) {    		
+    			arrayRep[i] = temp.getData();
+    			temp = temp.getLink();
+    			System.out.print(arrayRep[i] + " ");
+    		}
+    	}
+    	System.out.println("");
+    	return arrayRep;
+    }
 }
+    
+    		
+    			
+    			

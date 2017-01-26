@@ -11,13 +11,12 @@
 
 int a, b, c;
 
-int shift(int a, int b, int c) {
+void shift() {
 	int tempA = a;
 	int tempB = b;
 	a = c;
 	b = tempA;
 	c = tempB;
-	return a, b, c;
 }
 
 int main(int argc, char **argv) {
@@ -30,6 +29,7 @@ int main(int argc, char **argv) {
 	fgets(buff, sizeof(buff), stdin);
 	c = atoi(buff);
 	printf("Just to verify, your values are: a = %i, b = %i, c = %i\n", a, b, 	c);
-	shift(a, b, c);
+	shift();
 	printf("After being shifted, your values are:  a = %i, b = %i, c = %i\n", 	a, b, c);
+	return 0;
 }

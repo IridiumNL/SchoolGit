@@ -9,17 +9,17 @@
 #include <stdio.h>
  
 int main(int argc, char **argv) {
-    int a = 5;
+	int a = 5;
 	char b = 'g';
-    int *iptr;
-    char *cptr;
-    iptr = &a;
-    cptr = &b;
-    printf("%i %c\n", a, b);
-    *iptr = 2;
-    printf("%i %c\n", a, b);
-    cptr = &b;
-    *cptr = 'j';
-    printf("%i %c\n", a, b);
-    return 0;
+	int *iptr;
+	char *cptr;
+	iptr = &a;
+ 	cptr = &b;
+	printf("%i %c\n", a, b);
+	*iptr = 2;
+	printf("%i %c\n", a, b);
+	cptr = &b;
+	*cptr = 'j';
+	printf("%i %c\n", a, b);
+	return 0;
 }

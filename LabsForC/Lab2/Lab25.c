@@ -19,7 +19,12 @@ int *iptr;
 	b = tempA;
 	c = tempB;
 }
+
+The code I originally used to swap the values, before implementing pointers.
+
 */
+
+
 void shift(int a, int b, int c) {
 	int tempA = a;
 	iptr = &a;
@@ -28,7 +33,7 @@ void shift(int a, int b, int c) {
 	*iptr = b;
 	iptr = &b;
 	*iptr = tempA;
-	printf("After being shifted, your values are:  a = %i, b = %i, c = %i\n", a, b, c);
+	printf("After being shifted, your values are:  a = %i, b = %i, c = %i\n", 	a, b, c);
 }
 
 int main(int argc, char **argv) {
@@ -40,7 +45,7 @@ int main(int argc, char **argv) {
 	b = atoi(buff);
 	fgets(buff, sizeof(buff), stdin);
 	c = atoi(buff);
-	printf("Just to verify, your values are: a = %i, b = %i, c = %i\n", a, b, c);
+	printf("Just to verify, your values are: a = %i, b = %i, c = %i\n", a, b, 	c);
 	shift(a, b, c);
 	return 0;
 }

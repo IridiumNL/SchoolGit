@@ -19,6 +19,7 @@ int isEven(int n) {
 	}
 }
 
+
 int main(int argc, char **argv) {
 	char buff[80];
 	printf("Please input a positive integer to determine if it is even: ");

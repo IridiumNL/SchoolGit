@@ -1,0 +1,44 @@
+public class DLinkedList {
+	private DNode head;
+	private DNode tail;
+	int size;
+	
+	public DLinkedList() {
+		head = tail = null;
+		size = 0;
+	}
+	
+	public boolean isEmpty() {
+		if(size == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public void insert(int data) {
+		DNode n = new DNode();
+		n.setData(data);
+		if(isEmpty()) {
+			head = n;
+		} else {
+			tail.setTail(n);
+		}
+		tail = n;
+		size++;
+	}
+	
+	public void remove() {
+		if(isEmpty()) {
+			System.out.println("List is empty, cannot remove");
+		} else if(size == 1) {
+			head = tail = null;
+			size = 0;
+		} else {
+			DNode temp = head;
+			while(temp.getTail() != tail) {
+				temp = temp.getTail();
+			}
+		}
+	}
+}

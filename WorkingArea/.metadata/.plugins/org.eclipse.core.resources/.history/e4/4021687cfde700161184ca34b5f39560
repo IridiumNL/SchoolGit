@@ -1,0 +1,62 @@
+class DNode {
+	private int data;
+	private DNode nextNode;
+	private DNode prevNode;
+	
+	
+	
+	public DNode(int data, DNode next, DNode prev) {
+		this.data = data;
+		nextNode = next;
+		prevNode = prev;
+	}
+	
+	public DNode(int data) {
+		this(data, null, null);
+	}
+	
+	public DNode() {
+		this(0);
+	}
+	
+	public void setData(int data) {
+		this.data = data;
+	}
+	
+	public int getData() {
+		return data;
+	}
+	
+	public void setLink(DNode prev, DNode next) {
+		
+		this.prevNode = prev;
+		this.nextNode = next;
+		
+		if (prev == null) {
+			return;
+		}
+		if (next == null) {
+			prev.setLink(prev.getPrev(), this);
+			return;
+		}
+		prev.setLink(prev.getPrev(), this);
+		next.setLink(this, next.getNext());
+	}
+	
+	
+	public void setNext(DNode nextNode) {
+		this.nextNode = nextNode;
+	}
+	
+	public DNode getNext() {
+		return nextNode;
+	}
+	
+	public void setPrev(DNode prevNode) {
+		this.prevNode = prevNode;
+	}
+	
+	public DNode getPrev() {
+		return prevNode;
+	}
+}

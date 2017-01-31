@@ -1,0 +1,35 @@
+class DNode {
+	private int data;
+	private DNode head;
+	private DNode tail;
+	
+	public DNode() {
+		data = 0;
+		head = null;
+		tail = null;
+	}
+	
+	public void setData(int data) {
+		this.data = data;
+	}
+	
+	public int getData() {
+		return data;
+	}
+	
+	public void setHead(DNode head) {
+		this.head = head;
+	}
+	
+	public DNode getHead() {
+		return head;
+	}
+	
+	public void setTail(DNode tail) {
+		this.tail = tail;
+	}
+	
+	public DNode getTail() {
+		return tail;
+	}
+}

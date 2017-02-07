@@ -1,0 +1,66 @@
+public class DLinkedTest {
+	private DNode head;
+	private DNode tail;
+	int size;
+	
+	public DLinkedTest() {
+		head = null;
+		tail = null;
+		size = 0;
+	}
+	
+	public boolean isEmpty() {
+		if(size == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public void insert(int data) {
+		DNode n = new DNode(data);
+		if (isEmpty()) {
+			head = n;
+		}
+		if (size == 1) {
+			// head (n)
+			head.setNext(n);
+			n.setPrev(head);
+		} else if(size > 1) {
+			DNode temp = new DNode();
+			temp = n;
+			tail = n;
+			n.setPrev(tail);
+		}
+		
+		tail = n;
+		size++;
+	}
+	
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("[");
+		System.out.println("[");
+		DNode temp = head;
+		while(temp != null) {
+			if(temp.getPrev() == null) {
+				sb.append(temp.getData());
+				System.out.println(temp.getData());
+			} else {
+				sb.append(temp.getData() + ", ");
+				System.out.println(temp.getData() + ", ");
+			}
+			temp = temp.getPrev();
+		}
+		sb.append("]");
+		System.out.println("]");
+		String s = sb.toString();
+		return s;
+	}
+	
+	public static void main(String[] args) {
+		DLinkedTest d = new DLinkedTest();
+		d.insert(1); d.insert(2); d.insert(3); d.insert(4);
+		System.out.println(d);
+	}
+}

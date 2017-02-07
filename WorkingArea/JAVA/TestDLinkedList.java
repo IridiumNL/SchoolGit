@@ -20,6 +20,6 @@ public class TestDLinkedList {
 		d.insert(2); d.insert(3); d.insert(4);
 		System.out.println(d);
 		
-		d.reverse();
+		System.out.println(d.reverse());
 	}
 }

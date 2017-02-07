@@ -21,16 +21,13 @@ public class DLinkedList {
 		DNode n = new DNode(data);
 		if (isEmpty()) {
 			head = n;
-		}
-		if (size == 1) {
-			// head (n)
-			head.setNext(n);
-			n.setPrev(head);
-			
 		} else {
-			DNode tead = tail;
-			tead.setNext(n);
-			n.setPrev(tead);
+			DNode temp = head;
+			while(temp.next != null) {
+				temp = temp.next;
+			}
+			temp.setNext(n);
+			n.setPrev(temp);
 		}
 		
 		tail = n;
@@ -45,36 +42,27 @@ public class DLinkedList {
 			size = 0;
 		} else {
 			DNode temp = head;
-			while(temp.getPrev() != tail) {
-				temp = temp.getPrev();
+			while(temp.getNext() != null) {
+				temp = temp.getNext();
 			}
 			tail = temp;
-			tail.setPrev(null);
 			size--;
 		}
 	}
 	
 	public void remove(int i) {
-		if(isEmpty()) {
-			System.out.println("List is empty, cannot remove" + i);
-		} else {
-			DNode n = find(i);
-			if(n == tail) {
-				System.out.println("Can't remove " + i + ". Not in the list.");
-			} else if(size == 1) {
-					head = tail = null;
-					size = 0;
-				} else if(n == null) {
-						head = head.getNext();
-					} else if(n.getPrev() == tail) {
-						tail = n;
-						n.setPrev(null);
-					} else {
-						DNode next = n.getPrev().getPrev();
-						n.setPrev(next);
-					}
-			size--;
+		DNode temp = head;
+		while(temp.getData() != i) {
+			if(temp.next == null) {
+				System.out.println("Did not find " + i + " in the list.");
+				return;
+			}
+			temp = temp.next;
 		}
+		DNode nNode = temp.next;
+		DNode pNode = temp.prev;
+		pNode.setNext(nNode);
+		nNode.setPrev(pNode);
 	}
 	
 	public DNode find(int i) {
@@ -93,38 +81,34 @@ public class DLinkedList {
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		sb.append("[");
-		System.out.println("[");
 		DNode temp = head;
 		while(temp != null) {
-			if(temp.getPrev() == null) {
+			if(temp.getNext() == null) {
 				sb.append(temp.getData());
-				System.out.println(temp.getData());
 			} else {
 				sb.append(temp.getData() + ", ");
-				System.out.println(temp.getData() + ", ");
+				
 			}
-			temp = temp.getPrev();
+			temp = temp.getNext();
 		}
 		sb.append("]");
-		System.out.println("]");
 		String s = sb.toString();
 		return s;
 	}
 	
-	public void reverse() {
+	public String reverse() {
 		StringBuffer sb = new StringBuffer();
 		sb.append("[");
 		DNode temp = tail;
-		while(temp != null) {
-			if(temp.getPrev() == null) {
-				sb.append(temp.getData());
-			} else {
-				sb.append(temp.getData() + ", ");
-			}
+		while(temp.getPrev() != null) {
+			sb.append(temp.getData() + ", ");
 			temp = temp.getPrev();
+		}
+		if (temp.getPrev() == null) {
+			sb.append(temp.getData());
 		}
 		sb.append("]");
 		String s = sb.toString();
-		System.out.println(s);
+		return s;
 	}
 }

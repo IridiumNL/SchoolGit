@@ -1,0 +1,64 @@
+public class DLinkedTest {
+	private DNode head;
+	private DNode tail;
+	
+	public DLinkedTest() {
+		head = null;
+		tail = null;
+	}
+
+	public boolean isEmpty() {
+		if(head == null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public void insert(int data) {
+		DNode newNode = new DNode(data);
+		if (isEmpty()) {
+			newNode.prev = null;
+			newNode.next = null;
+			head = newNode;
+			tail = newNode;
+		} else {
+			DNode temp = head;
+			while(temp.next != null) {
+				temp = temp.next;
+			}
+			temp.next = newNode;
+			newNode.prev = temp;
+			tail = newNode;
+		}
+	}
+	
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("[");
+		DNode temp = head;
+		while(temp != null) {
+			if(temp.getPrev() == null) {
+				sb.append(temp.getData());
+			} else {
+				sb.append(temp.getData() + ", ");
+			}
+			temp = temp.getPrev();
+		}
+		sb.append("]");
+		String s = sb.toString();
+		return s;
+	}
+	
+	public static void main(String[] args) {
+		DLinkedList d = new DLinkedList();
+		d.insert(1);
+		System.out.println(d);
+		d.insert(2);
+		System.out.println(d);
+		d.insert(3);
+		System.out.println(d);
+		d.insert(4);
+		System.out.println(d);
+	}
+}

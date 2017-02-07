@@ -1,22 +1,18 @@
 class DNode {
 	private int data;
-	private DNode nextNode;
-	private DNode prevNode;
+	public DNode next;
+	public DNode prev;
 	
 	
-	
-	public DNode(int data, DNode next, DNode prev) {
-		this.data = data;
-		nextNode = next;
-		prevNode = prev;
-	}
 	
 	public DNode(int data) {
-		this(data, null, null);
+		this.data = data;
+		this.next = null;
+		this.prev = null;
 	}
 	
 	public DNode() {
-		this(0);
+		
 	}
 	
 	public void setData(int data) {
@@ -29,18 +25,18 @@ class DNode {
 	
 	
 	public void setNext(DNode nextNode) {
-		this.nextNode = nextNode;
+		this.next = nextNode;
 	}
 	
 	public DNode getNext() {
-		return nextNode;
+		return next;
 	}
 	
 	public void setPrev(DNode prevNode) {
-		this.prevNode = prevNode;
+		this.prev = prevNode;
 	}
 	
 	public DNode getPrev() {
-		return prevNode;
+		return prev;
 	}
 }

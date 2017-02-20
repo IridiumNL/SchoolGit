@@ -1,0 +1,31 @@
+class TestQueue {
+    public static void main(String[] args) {
+        Queue q = new Queue();
+        q.enqueue(1); q.enqueue(3); q.enqueue(2);
+        System.out.println(q);
+        Queue q2 = new Queue();
+        q2.enqueue(1); q2.enqueue(3); q2.enqueue(2);
+        System.out.println(q2);
+        Queue q3 = new Queue();
+        q3.enqueue(1); q3.enqueue(3); q3.enqueue(2);
+        System.out.println(q3);
+        Queue q4 = new Queue();
+        q4.enqueue(1); q4.enqueue(3); q4.enqueue(2);
+        System.out.println(q4);
+        Queue q5 = new Queue();
+        q5.enqueue(1); q5.enqueue(3); q5.enqueue(2);
+        System.out.println(q5);
+        Queue q6 = new Queue();
+        q6.enqueue(1); q6.enqueue(3); q6.enqueue(2);
+        System.out.println(q6);
+        Queue q7 = new Queue();
+        q7.enqueue(1); q7.enqueue(3); q7.enqueue(2);
+        System.out.println(q7);
+        Queue q8 = new Queue();
+        q8.enqueue(1); q8.enqueue(3); q8.enqueue(2);
+        System.out.println(q8);
+        Queue q9 = new Queue();
+        q9.enqueue(1); q9.enqueue(3); q9.enqueue(2);
+        System.out.println(q9);
+    }
+}

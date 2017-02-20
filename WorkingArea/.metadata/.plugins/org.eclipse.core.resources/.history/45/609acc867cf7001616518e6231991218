@@ -1,0 +1,72 @@
+class Queue {
+    private DNode head;
+    private DNode tail;
+    private int size;
+     
+    public Queue() {
+        head = tail = null;
+        size = 0;
+    }
+     
+    public boolean isEmpty() {
+        if(size == 0)
+            return true;
+        else
+            return false;
+    }
+     
+    public void enqueue(int data) {
+        DNode n = new DNode();
+        n.setData(data);
+        if(isEmpty())
+            head = n;
+        else
+            tail.setNext(n);
+        tail = n;
+        size++;
+    }
+     
+    public void dequeue() {
+        if(isEmpty()) 
+            System.out.println("Cannot dequeue. Queue is empty.");
+        else if(size == 1) {
+            head = tail = null;
+            size = 0;
+        }
+        else {
+            head = head.getNext();
+            size--;
+        }
+    }
+ 
+    public int getDataAtHead() {
+        return head.getData();
+    }
+     
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("[");
+        DNode temp = head;
+        while(temp != null) {
+            if(temp.getNext() == null)
+                sb.append(temp.getData());
+            else
+                sb.append(temp.getData() + ", ");
+            temp = temp.getNext();
+        }
+        sb.append("]");
+        String s = sb.toString();
+        return s;
+    }
+}
+ 
+class TestQueue {
+    public static void main(String[] args) {
+        Queue q = new Queue();
+        q.enqueue(1); q.enqueue(2);
+        System.out.println(q);
+        q.dequeue(); System.out.println(q);
+        q.dequeue(); System.out.println(q);
+        q.dequeue(); System.out.println(q);
+    }
+}

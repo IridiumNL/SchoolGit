@@ -1,0 +1,7 @@
+class TestQueue {
+    public static void main(String[] args) {
+        Queue q = new Queue();
+        q.enqueue(2); q.enqueue(3); q.enqueue(1);
+        System.out.println(q);
+    }
+}

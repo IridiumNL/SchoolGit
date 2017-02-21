@@ -1,0 +1,82 @@
+class Queue {
+    private Node head;
+    private Node tail;
+    private int size;
+     
+    public Queue() {
+        head = tail = null;
+        size = 0;
+    }
+     
+    public boolean isEmpty() {
+        if(size == 0)
+            return true;
+        else
+            return false;
+    }
+     
+    public void enqueue(int data) {
+        Node n = new Node();
+        n.setData(data);
+        if(isEmpty()) {
+            head = n;
+       		tail = n;
+        } else if(size == 1) {
+        	if(n.getData() < head.getData()) {
+        		Node temp = head;
+        		head = n;
+        		tail = temp;
+        		head.setLink(temp);
+        	} else {
+        		tail = n;
+        		head.setLink(tail);
+        	}
+        } else {
+        	Node m = head;
+        	
+			while(m.getLink() != null) {
+				if(m.getData() <= n.getData()) {
+					break;
+				}
+				m = m.getLink();
+				
+			}
+			n.setLink(m.getLink());
+			m.setLink(n);
+        }
+        size++;
+    }
+     
+    public void dequeue() {
+        if(isEmpty()) 
+            System.out.println("Cannot dequeue. Queue is empty.");
+        else if(size == 1) {
+            head = tail = null;
+            size = 0;
+        }
+        else {
+            head = head.getLink();
+            size--;
+        }
+    }
+ 
+    public int getDataAtHead() {
+        return head.getData();
+    }
+     
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("[");
+        Node temp = head;
+        while(temp != null) {
+            if(temp.getLink() == null)
+                sb.append(temp.getData());
+            else
+                sb.append(temp.getData() + ", ");
+            temp = temp.getLink();
+        }
+        sb.append("]");
+        String s = sb.toString();
+        return s;
+    }
+}

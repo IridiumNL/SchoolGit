@@ -1,0 +1,15 @@
+public class TestLRU {
+	public static void main(String[] args) {
+		LRU test = new LRU(4);
+		test.reference(3);
+		test.reference(2);
+		System.out.println("FindPage outcome: " + test.findPage());
+		test.reference(1);
+		test.reference(3);
+		test.print();
+		System.out.println("FindPage outcome: " + test.findPage());
+		test.reference(2);
+		test.print();
+		System.out.println("FindPage outcome: " + test.findPage());
+	}
+}
